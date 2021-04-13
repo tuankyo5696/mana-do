@@ -35,7 +35,7 @@ exports[`render To do page snapshots render deafult 1`] = `
     >
       <button
         className="Action__btn"
-        disabled={false}
+        disabled={true}
         onClick={[Function]}
         style={
           Object {
@@ -54,7 +54,7 @@ exports[`render To do page snapshots render deafult 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "backgroundColor": "#337ab7",
+            "backgroundColor": "#28a745",
             "color": "#fff",
           }
         }
@@ -84,7 +84,7 @@ exports[`render To do page snapshots render deafult 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "backgroundColor": "#337ab7",
+            "backgroundColor": "#dc3545",
             "color": "#fff",
           }
         }

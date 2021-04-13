@@ -27,7 +27,9 @@ interface ITempValue {
 }
 
 const ToDoPage = () => {
-  const getShowing: EnhanceTodoStatus = JSON.parse(localStorage.getItem('showing') || '{}') || 'ALL';
+  const getShowing: EnhanceTodoStatus = localStorage.getItem('showing')
+    ? JSON.parse(localStorage.getItem('showing') || '{}')
+    : 'ALL';
 
   const [{ todos }, dispatch] = React.useReducer(reducer, initialState);
   const [showing, setShowing] = useState<EnhanceTodoStatus>(getShowing);
@@ -168,7 +170,12 @@ const ToDoPage = () => {
         ) : (
           <span onDoubleClick={onDoubleClick(id)}>{content}</span>
         )}
-        <Button className="Todo__delete" onClick={() => dispatch(deleteTodo(id))} children="X" />
+        <Button
+          className="Todo__delete"
+          onClick={() => dispatch(deleteTodo(id))}
+          children="X"
+          style={{ backgroundColor: '#dc3545' }}
+        />
       </div>
     );
   });
@@ -203,6 +210,7 @@ const ToDoPage = () => {
             onClick={onShowing(TodoStatus.ACTIVE)}
             children={t('COMMONS.ACTIVE')}
             disabled={showing === TodoStatus.ACTIVE}
+            style={{ backgroundColor: '#28a745' }}
             title={t('BUTTON.TITLE_ACTIVE')}
           />
           <Button
@@ -217,6 +225,7 @@ const ToDoPage = () => {
             onClick={onDeleteAllTodo}
             children={t('COMMONS.CLEAR_ALL')}
             disabled={todos.length === 0}
+            style={{ backgroundColor: '#dc3545' }}
             title={t('BUTTON.TITLE_CLEAR_ALL')}
           />
         </div>

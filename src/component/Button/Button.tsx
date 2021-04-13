@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({ children, onClick, className, style, di
       onClick={onClick}
       className={className}
       disabled={disabled}
-      style={{ ...style, backgroundColor: '#337ab7', color: '#fff' }}
+      style={{ backgroundColor: '#337ab7', color: '#fff', ...style }}
       {...args}
     >
       {children}
